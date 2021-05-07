@@ -1,0 +1,3 @@
+include ':insertslib'
+include ':app'
+rootProject.name = "BytesInsert0507"
