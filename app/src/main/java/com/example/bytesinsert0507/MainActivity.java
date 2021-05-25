@@ -12,7 +12,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ToastUtils.ShowToast(getApplicationContext(),"insert toast");
+        Toast.makeText(getApplicationContext(),"nativeString",Toast.LENGTH_SHORT).show();
         findViewById(R.id.tv_test).setOnClickListener(this);
     }
 

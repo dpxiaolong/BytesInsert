@@ -40,17 +40,22 @@ public class CustomClassVisitor extends ClassVisitor {
 //                    mv.visitLdcInsn("点击结束 class： " + mClassName + " interface : "+Arrays.toString(mInterfaces));
 //                    mv.visitMethodInsn(INVOKEVIRTUAL, "java/io/PrintStream", "println", "(Ljava/lang/String;)V", false);
 
-
+                    mv.visitVarInsn(ALOAD, 0);
+                    mv.visitMethodInsn(INVOKEVIRTUAL, "com/example/bytesinsert0507/MainActivity", "getApplicationContext", "()Landroid/content/Context;", false);
+                    mv.visitLdcInsn("nativeString");
+                    mv.visitInsn(ICONST_0);
+                    mv.visitMethodInsn(INVOKESTATIC, "android/widget/Toast", "makeText", "(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;", false);
+                    mv.visitMethodInsn(INVOKEVIRTUAL, "android/widget/Toast", "show", "()V", false);
                 }
 
                 @Override
                 protected void onMethodEnter() {
                     super.onMethodEnter();
 
-                    mv.visitVarInsn(ALOAD, 0);
-                    mv.visitMethodInsn(INVOKEVIRTUAL, "com/example/bytesinsert0507/MainActivity", "getApplicationContext", "()Landroid/content/Context;", false);
-                    mv.visitLdcInsn("点击页面所在 class： " + mClassName + " 接口 : " + Arrays.toString(mInterfaces));
-                    mv.visitMethodInsn(INVOKESTATIC, "com/example/bytesinsert0507/ToastUtils", "ShowToast", "(Landroid/content/Context;Ljava/lang/String;)V", false);
+//                    mv.visitVarInsn(ALOAD, 0);
+//                    mv.visitMethodInsn(INVOKEVIRTUAL, "com/example/bytesinsert0507/MainActivity", "getApplicationContext", "()Landroid/content/Context;", false);
+//                    mv.visitLdcInsn("点击页面所在 class： " + mClassName + " 接口 : " + Arrays.toString(mInterfaces));
+//                    mv.visitMethodInsn(INVOKESTATIC, "com/example/bytesinsert0507/ToastUtils", "ShowToast", "(Landroid/content/Context;Ljava/lang/String;)V", false);
                 }
             };
         }
