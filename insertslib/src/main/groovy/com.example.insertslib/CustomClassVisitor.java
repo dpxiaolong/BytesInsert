@@ -36,9 +36,21 @@ public class CustomClassVisitor extends ClassVisitor {
                 @Override
                 protected void onMethodExit(int opcode) {
                     super.onMethodExit(opcode);
-                    mv.visitFieldInsn(GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
-                    mv.visitLdcInsn("点击结束 class： " + mClassName + " interface : "+Arrays.toString(mInterfaces));
-                    mv.visitMethodInsn(INVOKEVIRTUAL, "java/io/PrintStream", "println", "(Ljava/lang/String;)V", false);
+//                    mv.visitFieldInsn(GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
+//                    mv.visitLdcInsn("点击结束 class： " + mClassName + " interface : "+Arrays.toString(mInterfaces));
+//                    mv.visitMethodInsn(INVOKEVIRTUAL, "java/io/PrintStream", "println", "(Ljava/lang/String;)V", false);
+
+
+                }
+
+                @Override
+                protected void onMethodEnter() {
+                    super.onMethodEnter();
+
+                    mv.visitVarInsn(ALOAD, 0);
+                    mv.visitMethodInsn(INVOKEVIRTUAL, "com/example/bytesinsert0507/MainActivity", "getApplicationContext", "()Landroid/content/Context;", false);
+                    mv.visitLdcInsn("点击页面所在 class： " + mClassName + " 接口 : " + Arrays.toString(mInterfaces));
+                    mv.visitMethodInsn(INVOKESTATIC, "com/example/bytesinsert0507/ToastUtils", "ShowToast", "(Landroid/content/Context;Ljava/lang/String;)V", false);
                 }
             };
         }

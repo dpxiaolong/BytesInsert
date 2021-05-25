@@ -6,18 +6,23 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        findViewById(R.id.tv_test).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.i("MainActivity","onClick enter");
-                Toast.makeText(getApplicationContext(), "Toast enter", Toast.LENGTH_SHORT).show();
-            }
-        });
+        ToastUtils.ShowToast(getApplicationContext(),"insert toast");
+        findViewById(R.id.tv_test).setOnClickListener(this);
+    }
+
+    /**
+     * Called when a view has been clicked.
+     *
+     * @param v The view that was clicked.
+     */
+    @Override
+    public void onClick(View v) {
+        Log.i("MainActivity","onClick enter");
     }
 }
