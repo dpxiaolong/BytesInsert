@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: BytesInsert0507.insertslib.java-plugin-1.0.32">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/insertslib/build/libs/java-plugin-1.0.32.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
