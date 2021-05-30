@@ -42,7 +42,7 @@ public class CustomClassVisitor extends ClassVisitor {
 
                     mv.visitVarInsn(ALOAD, 0);
                     mv.visitMethodInsn(INVOKEVIRTUAL, "com/example/bytesinsert0507/MainActivity", "getApplicationContext", "()Landroid/content/Context;", false);
-                    mv.visitLdcInsn("nativeString");
+                    mv.visitLdcInsn("点击页面 class： " + mClassName + " 接口 : "+Arrays.toString(mInterfaces));
                     mv.visitInsn(ICONST_0);
                     mv.visitMethodInsn(INVOKESTATIC, "android/widget/Toast", "makeText", "(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;", false);
                     mv.visitMethodInsn(INVOKEVIRTUAL, "android/widget/Toast", "show", "()V", false);
